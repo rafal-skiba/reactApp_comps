@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import Button from "./components/Button";
+import { GoBellFill, GoCheckCircleFill } from "react-icons/go";
+import ButtonPage from "./pages/ButtonPage";
+import Accordion from "./components/Accordion";
+import DropDown from "./components/Dropdown";
 
 function App() {
+  const items = [
+    {
+      label: "Can i use React?",
+      content: "You can use React in any project you want",
+    },
+    {
+      label: "Can i use JS?",
+      content: "You can use JS in any project you want",
+    },
+    {
+      label: "Can i use CSS?",
+      content: "You can use Css in any project you want",
+    },
+  ];
+
+  const options = [
+    {
+      label: "red",
+      value: "redcolor",
+    },
+    {
+      label: "green",
+      value: "greencolor",
+    },
+    {
+      label: "orange",
+      value: "orangecolor",
+    },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Accordion items={items} />
+      <DropDown options={options} />
+      <ButtonPage />
     </div>
   );
 }
