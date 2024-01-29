@@ -1,10 +1,17 @@
 import Button from "./components/Button";
+import { useState, useEffect } from "react";
 import { GoBellFill, GoCheckCircleFill } from "react-icons/go";
 import ButtonPage from "./pages/ButtonPage";
 import Accordion from "./components/Accordion";
 import DropDown from "./components/Dropdown";
 
 function App() {
+  const [selection, setSelection] = useState(null);
+
+  const handleSelect = (option) => {
+    setSelection(option);
+  };
+
   const items = [
     {
       label: "Can i use React?",
@@ -36,10 +43,10 @@ function App() {
   ];
 
   return (
-    <div>
-      <Accordion items={items} />
-      <DropDown options={options} />
-      <ButtonPage />
+    <div className="flex">
+      {/* <Accordion items={items} /> */}
+      <DropDown options={options} value={selection} onChange={handleSelect} />
+      <DropDown options={options} value={selection} onChange={handleSelect} />
     </div>
   );
 }
